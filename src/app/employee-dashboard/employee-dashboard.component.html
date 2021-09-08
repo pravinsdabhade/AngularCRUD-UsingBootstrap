@@ -1,0 +1,100 @@
+<nav class="navbar navbar-light bg-primary">
+    <div class="container-fluid">
+        <h1 style="color: aliceblue;">Angular CRUD</h1>
+        <div class="d-flex">
+           <!-- Button trigger modal -->
+            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" (click)="onClickAddEmployee()"> Add Employee</button>
+        </div>
+    </div>
+</nav>
+
+<table class="table mt-3">
+    <thead>
+        <tr>
+            <th> Employee ID </th>
+            <th> First Name </th>
+            <th> Last Name </th>
+            <th> Email ID </th>
+            <th> Mobile </th>
+            <th> Salary </th>
+            <th> Action </th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let row of employeeData">
+            <td>{{row.id}}</td>
+            <td>{{row.firstName}}</td>
+            <td>{{row.lastName}}</td>
+            <td>{{row.email}}</td>
+            <td>{{row.mobile}}</td>
+            <td>${{row.salary}}</td>
+            <td>
+                <button class="btn btn-info" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" (click)="onEdit(row)"> Edit </button>
+                <button class="btn btn-danger mx-3" (click)="deleteEmployee(row)"> Delete </button>
+            </td>
+        </tr>
+    </tbody>
+</table> 
+
+
+
+<!-- {{ employeeFormValue.value | json}}
+    <br/>
+{{ employeeFormValue.invalid | json}} -->
+  
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Employee Details</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <form [formGroup]="employeeFormValue">
+                <div class="mb-3">
+                    <label for="exampleFormControlInput1" class="form-label">First Name</label>
+                    <input type="text" formControlName="firstName" class="form-control" id="exampleFormControlInput1" placeholder="Type your First name">
+                </div>
+                <div class="mb-3">
+                    <label for="exampleFormControlInput1" class="form-label">Last Name</label>
+                    <input type="text" formControlName="lastName" class="form-control" id="exampleFormControlInput1" placeholder="Type your Last name">
+                </div>
+                <div class="mb-3">
+                    <label for="exampleFormControlInput1" class="form-label">Email address</label>
+                    <input type="email" formControlName="email" class="form-control" id="exampleFormControlInput1" placeholder="Type your email id">
+                </div>
+                <div class="mb-3">
+                    <label for="exampleFormControlInput1" class="form-label">Mobile</label>
+                    <input type="number" formControlName="mobile"class="form-control" id="exampleFormControlInput1" placeholder="Type your mobile no.">
+                </div>
+                <div class="mb-3">
+                    <label for="exampleFormControlInput1" class="form-label">Salary</label>
+                    <input type="number" formControlName="salary" class="form-control" id="exampleFormControlInput1" placeholder="Type your salary">
+                </div>
+            </form>
+            <!-- <div class="container">
+            <form [formGroup]="employeeFormValue" (submit)="onSubmit()">
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label>First Name</label>
+                        <input type="text" class="form-control form-control-sm is-invalid"
+                            [ngClass]="employeeFormValue.get('fname').errors ? 'is-invalid' : ''"
+                            formControlName="fname"/>
+                        <div class="invalid-feedback">Name is required.</div>
+                    </div>
+                </div>
+            </form>
+            </div> -->
+        </div>
+       
+        <div class="modal-footer">
+          <button type="button" id="reset" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" *ngIf="isShowAddBtn" class="btn btn-primary" (click)="saveEmployeeDetails()">Add</button>
+          <button type="button" *ngIf="isShowUpdateBtn"class="btn btn-primary" (click)="updateEmployeeDetails()">Update</button>
+
+          <!-- <button type="submit"  class="btn btn-primary" [disabled]="employeeFormValue.invalid"> Submit </button> -->
+        </div>
+      </div>
+    </div>
+  </div>

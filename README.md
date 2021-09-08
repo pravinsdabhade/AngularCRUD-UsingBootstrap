@@ -1,3 +1,13 @@
+    # Pre-requisties:
+Node installed on your system
+1. Angular installed: npm install -g @angular/cli
+2. Fake Json Server: npm install -g json-server
+3. Start Json server: json-server --watch db.json
+4. URL for view created json data: http://localhost:3000/posts
+5. To Run angular project: ng serve --o
+
+youtube video link for reference : https://www.youtube.com/watch?v=I9mtyLg32nQ 
+
 # AngularCRUDUsingBootstrap
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.1.4.

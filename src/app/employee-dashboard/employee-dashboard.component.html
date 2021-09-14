@@ -53,24 +53,70 @@
         <div class="modal-body">
             <form [formGroup]="employeeFormValue">
                 <div class="mb-3">
-                    <label for="exampleFormControlInput1" class="form-label">First Name</label>
-                    <input type="text" formControlName="firstName" class="form-control" id="exampleFormControlInput1" placeholder="Type your First name">
+                    <label class="form-label">First Name</label>
+                    <input type="text" formControlName="firstName" maxlength="15" class="form-control" placeholder="Type your First name"/>
+                            <div *ngIf="employeeFormValue.controls['firstName'].touched 
+                                        && employeeFormValue.controls['firstName'].invalid">
+                                <small class="text-danger" *ngIf="employeeFormValue.controls['firstName'].errors?.required">
+                                    First Name is required!
+                                </small>
+                                <small class="text-danger" *ngIf="employeeFormValue.controls['firstName'].errors?.minlength">
+                                   First Name must be at least 3 characters long.
+                                </small>
+                            </div>
                 </div>
                 <div class="mb-3">
-                    <label for="exampleFormControlInput1" class="form-label">Last Name</label>
-                    <input type="text" formControlName="lastName" class="form-control" id="exampleFormControlInput1" placeholder="Type your Last name">
+                    <label class="form-label">Last Name</label>
+                    <input type="text" formControlName="lastName" maxlength="15"  class="form-control" placeholder="Type your Last name">
+                        <div *ngIf="employeeFormValue.controls['lastName'].touched
+                                    && employeeFormValue.controls['lastName'].invalid">
+                                <small class="text-danger" *ngIf="employeeFormValue.controls['lastName'].errors?.required">
+                                    Last Name is required!
+                                </small>
+                                <small class="text-danger" *ngIf="employeeFormValue.controls['lastName'].errors?.minlength">
+                                    Last Name must be at least 3 characters long.
+                                </small>
+                        </div>
                 </div>
                 <div class="mb-3">
-                    <label for="exampleFormControlInput1" class="form-label">Email address</label>
-                    <input type="email" formControlName="email" class="form-control" id="exampleFormControlInput1" placeholder="Type your email id">
+                    <label class="form-label">Email address</label>
+                    <input type="email" formControlName="email" class="form-control" placeholder="Type your email id">
+                    <div *ngIf="employeeFormValue.controls['email'].touched
+                                && employeeFormValue.controls['email'].invalid">
+                                <small class="text-danger" *ngIf="employeeFormValue.controls['email'].errors?.required">
+                                    Email address is required!
+                                </small>
+                                <small class="text-danger" *ngIf="employeeFormValue.controls['email'].errors?.email">
+                                    Invalid Email address
+                                </small>       
+                    </div>
                 </div>
                 <div class="mb-3">
                     <label for="exampleFormControlInput1" class="form-label">Mobile</label>
-                    <input type="number" formControlName="mobile"class="form-control" id="exampleFormControlInput1" placeholder="Type your mobile no.">
+                    <input type="number" formControlName="mobile"class="form-control" maxlength="10" placeholder="Type your mobile no.">
+                    <div *ngIf="employeeFormValue.controls['mobile'].touched
+                                && employeeFormValue.controls['mobile'].invalid">
+                                <small class="text-danger" *ngIf="employeeFormValue.controls['mobile'].errors?.required">
+                                    Mobile no. is required!
+                                </small>
+                                <small class="text-danger" *ngIf="employeeFormValue.controls['mobile'].errors?.pattern">
+                                    Must be 10 digit.
+                                </small>
+                    </div>
                 </div>
                 <div class="mb-3">
                     <label for="exampleFormControlInput1" class="form-label">Salary</label>
-                    <input type="number" formControlName="salary" class="form-control" id="exampleFormControlInput1" placeholder="Type your salary">
+                    <input type="number" formControlName="salary" class="form-control" placeholder="Type your salary">
+                    <div *ngIf="employeeFormValue.controls['salary'].touched
+                                && employeeFormValue.controls['salary'].invalid">
+                                <small class="text-danger" *ngIf="employeeFormValue.controls['salary'].errors?.required">
+                                    Salary is required!
+                                </small>
+                                <small class="text-danger" *ngIf="employeeFormValue.controls['mobile'].errors?.minlength">
+                                    Must be 4 digit.
+                                </small>
+
+                    </div>
                 </div>
             </form>
             <!-- <div class="container">
@@ -90,8 +136,10 @@
        
         <div class="modal-footer">
           <button type="button" id="reset" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-          <button type="button" *ngIf="isShowAddBtn" class="btn btn-primary" (click)="saveEmployeeDetails()">Add</button>
-          <button type="button" *ngIf="isShowUpdateBtn"class="btn btn-primary" (click)="updateEmployeeDetails()">Update</button>
+          <button type="button" *ngIf="isShowAddBtn" class="btn btn-primary" 
+                        (click)="saveEmployeeDetails()" [disabled]='!employeeFormValue.valid'>Add</button>
+          <button type="button" *ngIf="isShowUpdateBtn"class="btn btn-primary" 
+                        (click)="updateEmployeeDetails()" [disabled]='!employeeFormValue.valid'>Update</button>
 
           <!-- <button type="submit"  class="btn btn-primary" [disabled]="employeeFormValue.invalid"> Submit </button> -->
         </div>

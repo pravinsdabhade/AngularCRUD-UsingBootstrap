@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { ControlContainer, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 
 import { EmployeeModel } from './employee.model';
 
@@ -30,14 +30,12 @@ export class EmployeeDashboardComponent implements OnInit {
 
   ngOnInit(): void {
     this.employeeFormValue = this.formbuilder.group({
-      fname: new FormControl("sam",[Validators.required]),
-      
-      firstName : [''],
-      lastName : [''],
-      email : [''],
-      mobile : [''],
-      salary : [''] 
-      })
+      firstName : new FormControl('',[Validators.required, Validators.minLength(3), Validators.maxLength(10)]),
+      lastName : new FormControl('',[Validators.required,Validators.minLength(3), Validators.maxLength(10)]),
+      email : new FormControl('',[Validators.required, Validators.email]),
+      mobile : new FormControl('',[Validators.required,Validators.pattern("^((\\+91-?)|0)?[0-9]{10}$")]),
+      salary : new FormControl('',[Validators.required,Validators.minLength(4)]) 
+      });
 
       this.getAllEmployees();
   }

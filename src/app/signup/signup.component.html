@@ -1,0 +1,78 @@
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <div class="card">
+                <div class="text-center">
+                    <h1>
+                       Sign Up
+                    </h1>
+                    <h6>
+                        Register yourself !!!
+                    </h6>
+                </div>
+                <form >
+                <form [formGroup]="signupForm" (ngSubmit)="signUp()">
+                    <div class="mb-3">
+                        <label class="form-label">Full Name</label>
+                        <input type="text" class="form-control" formControlName="fullName">
+
+                        <div *ngIf="signupForm.controls['fullName'].touched
+                                && signupForm.controls['fullName'].invalid">
+                                <small class="text-danger" *ngIf="signupForm.controls['fullName'].errors?.required">
+                                    Full Name is required!
+                                </small>       
+                        </div>
+                    </div>
+                    
+                    <div class="mb-3">
+                        <label class="form-label">Mobile</label>
+                        <input type="number" class="form-control" formControlName="mobile">
+
+                        <div *ngIf="signupForm.controls['mobile'].touched
+                                && signupForm.controls['mobile'].invalid">
+                                <small class="text-danger" *ngIf="signupForm.controls['mobile'].errors?.required">
+                                    Mobile no. is required!
+                                </small>
+                                <small class="text-danger" *ngIf="signupForm.controls['mobile'].errors?.pattern">
+                                    Must be 10 digit.
+                                </small>
+                    </div>
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">Email address</label>
+                        <input type="email" class="form-control" formControlName="email" aria-describedby="emailHelp">
+                        <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+
+                        <div *ngIf="signupForm.controls['email'].touched
+                                && signupForm.controls['email'].invalid">
+                                <small class="text-danger" *ngIf="signupForm.controls['email'].errors?.required">
+                                    Email address is required!
+                                </small>
+                                <small class="text-danger" *ngIf="signupForm.controls['email'].errors?.email">
+                                    Invalid Email address
+                                </small>       
+                        </div>
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">Password</label>
+                        <input type="password" class="form-control" formControlName="password">
+                        
+                        <div *ngIf="signupForm.controls['password'].touched
+                                && signupForm.controls['password'].invalid">
+                                <small class="text-danger" *ngIf="signupForm.controls['password'].errors?.required">
+                                    Password is required!
+                                </small>       
+                        </div>
+                    </div>
+                    
+                    <button type="submit" [disabled]="!signupForm.valid" class="btn btn-primary mb-1">Sign up</button>
+                </form>
+                </form>
+                <a style="color: bisque; margin-top: 10px;" routerLink="/login"> already register? Click here to login </a>
+            </div>
+        </div>    
+    </div>
+</div>

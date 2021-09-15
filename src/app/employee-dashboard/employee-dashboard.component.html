@@ -3,7 +3,11 @@
         <h1 style="color: aliceblue;">Angular CRUD</h1>
         <div class="d-flex">
            <!-- Button trigger modal -->
-            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" (click)="onClickAddEmployee()"> Add Employee</button>
+            <button type="button" class="btn btn-success margin-top" data-bs-toggle="modal" 
+                    data-bs-target="#exampleModal" (click)="onClickAddEmployee()"> Add Employee</button>
+
+            <button class="btn btn-danger mx-3" routerLink="/login">logout</button>
+
         </div>
     </div>
 </nav>

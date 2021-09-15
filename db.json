@@ -17,7 +17,22 @@
       "salary": 21
     }
   ],
-  "comments": [],
+  "signupUsers": [
+    {
+      "fullName": "Pravin Dabhade",
+      "email": "p.dabhade@direction.biz",
+      "password": "123",
+      "mobile": 9773686772,
+      "id": 1
+    },
+    {
+      "fullName": "Pravin Dabhade",
+      "email": "p.dabhade1@direction.biz",
+      "password": "12111121",
+      "mobile": 9773686772,
+      "id": 2
+    }
+  ],
   "profile": {
     "name": "typicode"
   }

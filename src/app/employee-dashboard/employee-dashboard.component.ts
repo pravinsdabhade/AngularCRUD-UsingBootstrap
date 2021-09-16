@@ -8,19 +8,25 @@ import { ApiService } from '../shared/api.service';
 import { error } from '@angular/compiler/src/util';
 import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import {NgxPaginationModule} from 'ngx-pagination'; // <-- import the module
+
 @Component({
   selector: 'app-employee-dashboard',
   templateUrl: './employee-dashboard.component.html',
   styleUrls: ['./employee-dashboard.component.css']
 })
 export class EmployeeDashboardComponent implements OnInit {
-
+  
+  p: number = 1;
+  
   employeeFormValue! : FormGroup;
   employeeModelObj : EmployeeModel = new EmployeeModel();
   employeeData !: any;
 
   isShowAddBtn !: boolean;
   isShowUpdateBtn !: boolean;
+  
 
   constructor(private formbuilder : FormBuilder,private api : ApiService) { }
 
@@ -41,23 +47,46 @@ export class EmployeeDashboardComponent implements OnInit {
   }
 
   saveEmployeeDetails(){
-    
-    this.employeeModelObj.firstName = this.employeeFormValue.value.firstName;
-    this.employeeModelObj.lastName = this.employeeFormValue.value.lastName;
-    this.employeeModelObj.email = this.employeeFormValue.value.email;
-    this.employeeModelObj.mobile = this.employeeFormValue.value.mobile;
-    this.employeeModelObj.salary = this.employeeFormValue.value.salary;
 
-    this.api.postEmployee(this.employeeModelObj).subscribe(res =>{
-      console.log(res);
-      alert("Employee Added successfully")
-      let ref = document.getElementById('reset')
-      ref?.click();
-      this.employeeFormValue.reset();
-      this.getAllEmployees();
-    }, error =>{
-      alert("Something went wrong")
-    })
+    // Logic to check email id exists or not.
+    this.api.getEmployee()
+    .subscribe(res =>{
+        const isEmployeeWithThisEmailIdPresent = res.find((a:any)=>{
+          // alert(a.email+" and "+this.employeeFormValue.value.email);
+         return a.email === this.employeeFormValue.value.email;
+        });
+
+    if(!isEmployeeWithThisEmailIdPresent){
+      
+      // If not then save the new record with new email id
+      this.employeeModelObj.firstName = this.employeeFormValue.value.firstName;
+      this.employeeModelObj.lastName = this.employeeFormValue.value.lastName;
+      this.employeeModelObj.email = this.employeeFormValue.value.email;
+      this.employeeModelObj.mobile = this.employeeFormValue.value.mobile;
+      this.employeeModelObj.salary = this.employeeFormValue.value.salary;
+
+      this.api.postEmployee(this.employeeModelObj).subscribe(res =>{
+        console.log(res);
+        alert("Employee Added successfully")
+        let ref = document.getElementById('reset')
+        ref?.click();
+        this.employeeFormValue.reset();
+        this.getAllEmployees();
+      }, error =>{
+        alert("Something went wrong")
+      });
+    }else{
+      alert("Employee with "+ this.employeeFormValue.value.email +" email already exists...");
+    }
+
+        
+    });
+    
+    
+
+
+
+    
   }
 
   getAllEmployees(){

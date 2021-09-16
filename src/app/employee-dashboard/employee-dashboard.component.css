@@ -2,3 +2,17 @@ input.ng-invalid.ng-touched
 {
     border-color: red;
 }
+
+.my-pagination /deep/ .ngx-pagination .current {
+    background: rgb(240, 141, 141);
+    border-style: outset;
+  }
+
+.my-pagination /deep/ .ngx-pagination .current,
+.btn-info {
+  background: #17a2b8 !important;
+  border: transparent !important;
+  border-radius: 20px !important;
+}
+
+

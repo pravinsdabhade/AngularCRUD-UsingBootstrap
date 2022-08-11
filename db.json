@@ -4,7 +4,7 @@
       "id": 13,
       "firstName": "test",
       "lastName": "test",
-      "email": "p.dabhade@direction.biz",
+      "email": "p.dabhade@yahoo.in",
       "mobile": 9773686773,
       "salary": 2000
     },
@@ -12,7 +12,7 @@
       "id": 14,
       "firstName": "Pravin ",
       "lastName": "Dabhade",
-      "email": "p.dabhade3@direction.biz",
+      "email": "p.dabhade3@rediffmail.com",
       "mobile": 9773686772,
       "salary": 20000
     },
@@ -20,7 +20,7 @@
       "id": 15,
       "firstName": "ssd",
       "lastName": "sdsd",
-      "email": "p.dabhade2@direction.biz",
+      "email": "p.dabhade2@gmail.com",
       "mobile": 7777777777,
       "salary": 20000
     },
@@ -28,7 +28,7 @@
       "id": 16,
       "firstName": "sdd",
       "lastName": "sdsd",
-      "email": "p.dabhade1@direction.biz",
+      "email": "p.dabhade1@yahoo.in",
       "mobile": 9999999999,
       "salary": 343
     },
@@ -36,7 +36,7 @@
       "id": 17,
       "firstName": "sdsd",
       "lastName": "sdsd",
-      "email": "p.dabhade4@direction.biz",
+      "email": "p.dabhade4@gmail.com",
       "mobile": 8888888888,
       "salary": 232
     },
@@ -44,7 +44,7 @@
       "id": 18,
       "firstName": "sdsd",
       "lastName": "sdsd",
-      "email": "p.dabhade4@direction.biz",
+      "email": "p.dabhade4@yahooo.in",
       "mobile": 8888888888,
       "salary": 232
     },
@@ -52,7 +52,7 @@
       "id": 19,
       "firstName": "sdsd",
       "lastName": "sdsd",
-      "email": "p.dabhade4@direction.biz",
+      "email": "p.dabhade4@gmail.com",
       "mobile": 8888888888,
       "salary": 232
     },
@@ -60,7 +60,7 @@
       "id": 20,
       "firstName": "sdsd",
       "lastName": "sdsd",
-      "email": "p.dabhade4@direction.biz",
+      "email": "p.dabhade4@gmail.com",
       "mobile": 8888888888,
       "salary": 232
     },
@@ -68,7 +68,7 @@
       "id": 21,
       "firstName": "sdsd",
       "lastName": "sdsd",
-      "email": "p.dabhade4@direction.biz",
+      "email": "p.dabhade4@gmail.in,
       "mobile": 8888888888,
       "salary": 232
     },
@@ -76,7 +76,7 @@
       "id": 22,
       "firstName": "sdsd",
       "lastName": "sdsd",
-      "email": "p.dabhade4@direction.biz",
+      "email": "p.dabhade4@yahoo.in",
       "mobile": 8888888888,
       "salary": 232
     },
@@ -84,7 +84,7 @@
       "id": 23,
       "firstName": "sdsd",
       "lastName": "sdsd",
-      "email": "p.dabhade5@direction.biz",
+      "email": "p.dabhade5@rediffmail.com",
       "mobile": 8888888888,
       "salary": 122
     }
@@ -92,14 +92,14 @@
   "signupUsers": [
     {
       "fullName": "Pravin Dabhade",
-      "email": "p.dabhade@direction.biz",
+      "email": "p.dabhade@hotmail.com",
       "password": "123",
       "mobile": 9773686772,
       "id": 1
     },
     {
       "fullName": "Pravin Dabhade",
-      "email": "p.dabhade1@direction.biz",
+      "email": "p.dabhade1@yahoo.in",
       "password": "12111121",
       "mobile": 9773686772,
       "id": 2
